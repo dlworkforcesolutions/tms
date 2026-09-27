@@ -784,42 +784,31 @@
                         <i class="fas fa-map"></i> Operational Coverage Areas
                     </h2>
                     <div style="background: var(--bg-card); border-radius: 8px; padding: 20px; overflow-x: auto;">
-                        <svg viewBox="0 0 960 600" style="width: 100%; height: auto; max-width: 900px; margin: 0 auto; display: block;">
-                            <!-- Map Background -->
-                            <rect width="960" height="600" fill="var(--bg-dark)" style="background: #0f172a;"/>
+                        <svg viewBox="0 0 1200 700" style="width: 100%; height: auto; max-width: 1000px; margin: 0 auto; display: block;">
+                            <!-- West Region (Blue) - CA, OR, WA, NV, UT, CO -->
+                            <ellipse cx="200" cy="250" rx="90" ry="120" fill="#4361ee" opacity="0.85"/>
+                            <text x="200" y="260" font-size="20" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">WEST</text>
 
-                            <!-- Simplified US Regional Map -->
-                            <!-- West Region (Blue) -->
-                            <g id="west" opacity="0.9" fill="#4361ee" stroke="#2d3e54" stroke-width="1">
-                                <path d="M 80 150 L 150 140 L 160 200 L 80 210 Z" title="West Region"/>
-                            </g>
+                            <!-- Southwest Region (Teal) - TX, AZ, NM, OK -->
+                            <ellipse cx="280" cy="420" rx="80" ry="100" fill="#2fa898" opacity="0.85"/>
+                            <text x="280" y="425" font-size="18" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">SOUTHWEST</text>
 
-                            <!-- Southwest Region (Teal) -->
-                            <g id="southwest" opacity="0.9" fill="#2fa898" stroke="#2d3e54" stroke-width="1">
-                                <path d="M 80 210 L 160 200 L 180 320 L 80 330 Z" title="Southwest Region"/>
-                            </g>
+                            <!-- Midwest Region (Green) - IL, IN, IA, MO, KS, NE, ND, SD, MN -->
+                            <ellipse cx="500" cy="280" rx="100" ry="120" fill="#06d6a0" opacity="0.85"/>
+                            <text x="500" y="280" font-size="20" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">MIDWEST</text>
 
-                            <!-- Midwest Region (Green) -->
-                            <g id="midwest" opacity="0.9" fill="#06d6a0" stroke="#2d3e54" stroke-width="1">
-                                <path d="M 150 140 L 280 120 L 290 240 L 160 200 Z" title="Midwest Region"/>
-                            </g>
+                            <!-- Southeast Region (Red) - GA, FL, NC, SC, TN, AR, LA, MS, AL -->
+                            <ellipse cx="700" cy="420" rx="110" ry="110" fill="#ff6b6b" opacity="0.85"/>
+                            <text x="700" y="425" font-size="20" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">SOUTHEAST</text>
 
-                            <!-- Northeast Region (Orange) -->
-                            <g id="northeast" opacity="0.9" fill="#ff8c42" stroke="#2d3e54" stroke-width="1">
-                                <path d="M 280 120 L 380 130 L 380 200 L 290 240 Z" title="Northeast Region"/>
-                            </g>
+                            <!-- Northeast Region (Orange) - NY, PA, NJ, MA, CT, VT, NH, ME, RI -->
+                            <ellipse cx="850" cy="200" rx="80" ry="100" fill="#ff8c42" opacity="0.85"/>
+                            <text x="850" y="205" font-size="18" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">NORTHEAST</text>
 
-                            <!-- Southeast Region (Red) -->
-                            <g id="southeast" opacity="0.9" fill="#ff6b6b" stroke="#2d3e54" stroke-width="1">
-                                <path d="M 290 240 L 380 200 L 380 380 L 250 380 L 180 320 Z" title="Southeast Region"/>
-                            </g>
-
-                            <!-- Region Labels -->
-                            <text x="100" y="180" font-size="18" font-weight="600" fill="white" text-anchor="middle" opacity="0.8">WEST</text>
-                            <text x="120" y="280" font-size="16" font-weight="600" fill="white" text-anchor="middle" opacity="0.8">SOUTHWEST</text>
-                            <text x="200" y="190" font-size="18" font-weight="600" fill="white" text-anchor="middle" opacity="0.8">MIDWEST</text>
-                            <text x="320" y="160" font-size="16" font-weight="600" fill="white" text-anchor="middle" opacity="0.8">NORTHEAST</text>
-                            <text x="310" y="310" font-size="18" font-weight="600" fill="white" text-anchor="middle" opacity="0.8">SOUTHEAST</text>
+                            <!-- Decorative connecting lines -->
+                            <line x1="280" y1="360" x2="400" y2="320" stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-dasharray="5,5"/>
+                            <line x1="600" y1="350" x2="650" y2="380" stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-dasharray="5,5"/>
+                            <line x1="750" y1="320" x2="800" y2="280" stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-dasharray="5,5"/>
                         </svg>
                     </div>
 
