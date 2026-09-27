@@ -699,6 +699,10 @@
                 <i class="fas fa-chart-line"></i>
                 <span>Dashboard</span>
             </div>
+            <div class="nav-item" onclick="showSection('load-calculator')">
+                <i class="fas fa-calculator"></i>
+                <span>Load Calculator</span>
+            </div>
             <div class="nav-item" onclick="showSection('load-board')">
                 <i class="fas fa-boxes"></i>
                 <span>Load Board</span>
@@ -809,6 +813,162 @@
                             <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: #ff6b6b; margin-bottom: 4px;">Southeast</div>
                             <div style="font-size: 13px; color: var(--text-light);">GA, FL, NC, SC, TN, AR</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load Calculator Section -->
+            <div id="load-calculator" class="section" style="display: none;">
+                <h1 class="section-title">Load Calculator</h1>
+                <p class="section-subtitle">Calculate load profitability and dispatch to load board when ready</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1400px;">
+                    <!-- Calculator Input Panel -->
+                    <div style="background: var(--bg-card); border-radius: 12px; padding: 25px; border: 1px solid var(--border-color);">
+                        <h2 style="font-size: 18px; font-weight: 600; margin-bottom: 20px; color: var(--text-white);">Load Details</h2>
+
+                        <div style="display: flex; flex-direction: column; gap: 18px;">
+                            <!-- Broker Name -->
+                            <div class="form-group">
+                                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-white);">Broker Name</label>
+                                <input type="text" id="calcBrokerName" placeholder="e.g., Hub Group, Titus, JB Hunt" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 6px; background: rgba(255,255,255,0.05); color: var(--text-white); font-size: 14px;">
+                            </div>
+
+                            <!-- Miles -->
+                            <div class="form-group">
+                                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-white);">Miles</label>
+                                <input type="number" id="calcMiles" placeholder="0" step="1" min="0" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 6px; background: rgba(255,255,255,0.05); color: var(--text-white); font-size: 14px;" oninput="calculateLoad()">
+                            </div>
+
+                            <!-- Rate Type Selection -->
+                            <div class="form-group">
+                                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-white);">Rate Type</label>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                                    <button type="button" id="rateTypeCPM" class="btn" style="background: var(--accent-blue); color: white; padding: 10px; border-radius: 6px; font-weight: 600; cursor: pointer;" onclick="setRateType('CPM')">CPM</button>
+                                    <button type="button" id="rateTypeHourly" class="btn" style="background: var(--bg-hover); color: var(--text-light); padding: 10px; border-radius: 6px; font-weight: 600; cursor: pointer;" onclick="setRateType('Hourly')">Hourly</button>
+                                    <button type="button" id="rateTypeFlat" class="btn" style="background: var(--bg-hover); color: var(--text-light); padding: 10px; border-radius: 6px; font-weight: 600; cursor: pointer;" onclick="setRateType('Flat')">Flat Fee</button>
+                                    <button type="button" id="rateTypeCombo" class="btn" style="background: var(--bg-hover); color: var(--text-light); padding: 10px; border-radius: 6px; font-weight: 600; cursor: pointer;" onclick="setRateType('Combo')">Combo</button>
+                                </div>
+                            </div>
+
+                            <!-- Rate Amount -->
+                            <div class="form-group">
+                                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-white);" id="rateLabel">Rate per Mile ($)</label>
+                                <input type="number" id="calcRate" placeholder="0.00" step="0.01" min="0" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 6px; background: rgba(255,255,255,0.05); color: var(--text-white); font-size: 14px;" oninput="calculateLoad()">
+                            </div>
+
+                            <!-- Load Pay (for combo rates) -->
+                            <div class="form-group" id="loadPayGroup" style="display: none;">
+                                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-white);">Load Pay ($)</label>
+                                <input type="number" id="calcLoadPay" placeholder="0.00" step="0.01" min="0" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 6px; background: rgba(255,255,255,0.05); color: var(--text-white); font-size: 14px;" oninput="calculateLoad()">
+                            </div>
+
+                            <!-- Stop Pay -->
+                            <div class="form-group">
+                                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-white);">Stop Pay ($) <span style="color: var(--text-muted); font-size: 12px;">(optional)</span></label>
+                                <input type="number" id="calcStopPay" placeholder="0.00" step="0.01" min="0" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 6px; background: rgba(255,255,255,0.05); color: var(--text-white); font-size: 14px;" oninput="calculateLoad()">
+                            </div>
+
+                            <!-- Number of Stops -->
+                            <div class="form-group">
+                                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-white);">Number of Stops <span style="color: var(--text-muted); font-size: 12px;">(optional)</span></label>
+                                <input type="number" id="calcStops" placeholder="0" step="1" min="0" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 6px; background: rgba(255,255,255,0.05); color: var(--text-white); font-size: 14px;" oninput="calculateLoad()">
+                            </div>
+
+                            <!-- Equipment Type -->
+                            <div class="form-group">
+                                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-white);">Equipment Type</label>
+                                <select id="calcEquipment" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 6px; background: rgba(255,255,255,0.05); color: var(--text-white); font-size: 14px;">
+                                    <option value="">Select Equipment</option>
+                                    <option value="dry-van">Dry Van</option>
+                                    <option value="reefer">Reefer</option>
+                                    <option value="flatbed">Flatbed</option>
+                                    <option value="tanker">Tanker</option>
+                                    <option value="hotshot">Hotshot</option>
+                                    <option value="box-truck">Box Truck</option>
+                                    <option value="straight-truck">Straight Truck</option>
+                                    <option value="pickup">Pickup Truck</option>
+                                </select>
+                            </div>
+
+                            <!-- Freight Type -->
+                            <div class="form-group">
+                                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-white);">Freight Type</label>
+                                <input type="text" id="calcFreight" placeholder="e.g., General Cargo, Groceries" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 6px; background: rgba(255,255,255,0.05); color: var(--text-white); font-size: 14px;">
+                            </div>
+
+                            <!-- Origin -->
+                            <div class="form-group">
+                                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-white);">Pick-up Location</label>
+                                <input type="text" id="calcOrigin" placeholder="City, State" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 6px; background: rgba(255,255,255,0.05); color: var(--text-white); font-size: 14px;">
+                            </div>
+
+                            <!-- Destination -->
+                            <div class="form-group">
+                                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-white);">Delivery Location</label>
+                                <input type="text" id="calcDestination" placeholder="City, State" style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 6px; background: rgba(255,255,255,0.05); color: var(--text-white); font-size: 14px;">
+                            </div>
+
+                            <!-- Notes -->
+                            <div class="form-group">
+                                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: var(--text-white);">Notes</label>
+                                <textarea id="calcNotes" placeholder="Any special details..." style="width: 100%; padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 6px; background: rgba(255,255,255,0.05); color: var(--text-white); font-size: 14px; font-family: inherit; resize: vertical;" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculator Results Panel -->
+                    <div style="background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(157, 78, 221, 0.1)); border-radius: 12px; padding: 25px; border: 2px solid var(--accent-blue); display: flex; flex-direction: column; gap: 20px;">
+                        <h2 style="font-size: 18px; font-weight: 600; color: var(--text-white);">Load Summary</h2>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <!-- Total Pay -->
+                            <div style="background: rgba(67, 97, 238, 0.15); border-radius: 8px; padding: 15px; border-left: 4px solid var(--accent-blue);">
+                                <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 6px;">Total Pay</div>
+                                <div id="calcTotalPay" style="font-size: 32px; font-weight: 700; color: var(--accent-green);">$0.00</div>
+                            </div>
+
+                            <!-- Per-Mile Rate -->
+                            <div style="background: rgba(157, 78, 221, 0.15); border-radius: 8px; padding: 15px; border-left: 4px solid var(--accent-purple);">
+                                <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--accent-purple); margin-bottom: 6px;">Effective $/Mile</div>
+                                <div id="calcPerMile" style="font-size: 32px; font-weight: 700; color: var(--accent-green);">$0.00</div>
+                            </div>
+                        </div>
+
+                        <!-- Breakdown -->
+                        <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 15px; border: 1px solid var(--border-color);">
+                            <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px;">Pay Breakdown</div>
+                            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span id="breakdownLabel1" style="color: var(--text-light);">Base Rate:</span>
+                                    <span id="breakdown1" style="color: var(--text-white); font-weight: 600;">$0.00</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;" id="breakdownRow2" style="display: none;">
+                                    <span id="breakdownLabel2" style="color: var(--text-light);">Load Pay:</span>
+                                    <span id="breakdown2" style="color: var(--text-white); font-weight: 600;">$0.00</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;" id="breakdownRow3" style="display: none;">
+                                    <span id="breakdownLabel3" style="color: var(--text-light);">Stop Pay:</span>
+                                    <span id="breakdown3" style="color: var(--text-white); font-weight: 600;">$0.00</span>
+                                </div>
+                                <div style="border-top: 1px solid var(--border-color); padding-top: 8px; margin-top: 8px; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 16px;">
+                                    <span style="color: var(--text-white);">TOTAL:</span>
+                                    <span id="totalBreakdown" style="color: var(--accent-green);">$0.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dispatch Buttons -->
+                        <div style="display: flex; gap: 12px; margin-top: auto;">
+                            <button class="btn btn-primary" onclick="dispatchLoadFromCalculator()" style="flex: 1; padding: 14px;">
+                                <i class="fas fa-check-circle"></i> Dispatch Load
+                            </button>
+                            <button class="btn btn-secondary" onclick="clearCalculator()" style="flex: 1; padding: 14px;">
+                                <i class="fas fa-redo"></i> Clear
+                            </button>
+                        </div>
+
+                        <div id="calcMessage" style="padding: 12px; border-radius: 6px; text-align: center; font-size: 13px; display: none;"></div>
                     </div>
                 </div>
             </div>
@@ -2851,6 +3011,186 @@
         function goToPayments() {
             const paymentsNav = document.querySelector('[onclick="showSection(\'payments\')"]');
             if (paymentsNav) paymentsNav.click();
+        }
+
+        // Load Calculator Functions
+        let calculatorRateType = 'CPM';
+
+        function setRateType(type) {
+            calculatorRateType = type;
+            document.getElementById('rateTypeCPM').style.background = type === 'CPM' ? 'var(--accent-blue)' : 'var(--bg-hover)';
+            document.getElementById('rateTypeCPM').style.color = type === 'CPM' ? 'white' : 'var(--text-light)';
+            document.getElementById('rateTypeHourly').style.background = type === 'Hourly' ? 'var(--accent-blue)' : 'var(--bg-hover)';
+            document.getElementById('rateTypeHourly').style.color = type === 'Hourly' ? 'white' : 'var(--text-light)';
+            document.getElementById('rateTypeFlat').style.background = type === 'Flat' ? 'var(--accent-blue)' : 'var(--bg-hover)';
+            document.getElementById('rateTypeFlat').style.color = type === 'Flat' ? 'white' : 'var(--text-light)';
+            document.getElementById('rateTypeCombo').style.background = type === 'Combo' ? 'var(--accent-blue)' : 'var(--bg-hover)';
+            document.getElementById('rateTypeCombo').style.color = type === 'Combo' ? 'white' : 'var(--text-light)';
+
+            const loadPayGroup = document.getElementById('loadPayGroup');
+            const rateLabel = document.getElementById('rateLabel');
+
+            if (type === 'Combo') {
+                loadPayGroup.style.display = 'block';
+                rateLabel.textContent = 'CPM Rate ($)';
+            } else if (type === 'Hourly') {
+                loadPayGroup.style.display = 'none';
+                rateLabel.textContent = 'Hourly Rate ($)';
+            } else if (type === 'Flat') {
+                loadPayGroup.style.display = 'none';
+                rateLabel.textContent = 'Total Flat Fee ($)';
+            } else {
+                loadPayGroup.style.display = 'none';
+                rateLabel.textContent = 'Rate per Mile ($)';
+            }
+
+            calculateLoad();
+        }
+
+        function calculateLoad() {
+            const miles = parseFloat(document.getElementById('calcMiles').value) || 0;
+            const rate = parseFloat(document.getElementById('calcRate').value) || 0;
+            const loadPay = parseFloat(document.getElementById('calcLoadPay').value) || 0;
+            const stopPay = parseFloat(document.getElementById('calcStopPay').value) || 0;
+            const stops = parseFloat(document.getElementById('calcStops').value) || 0;
+
+            let totalPay = 0;
+            let breakdown1 = 0, breakdown2 = 0, breakdown3 = 0;
+
+            if (calculatorRateType === 'CPM') {
+                breakdown1 = miles * rate;
+                totalPay = breakdown1;
+            } else if (calculatorRateType === 'Hourly') {
+                breakdown1 = rate * 10; // Assume 10 hour estimate (can be made dynamic)
+                totalPay = breakdown1;
+            } else if (calculatorRateType === 'Flat') {
+                breakdown1 = rate;
+                totalPay = breakdown1;
+            } else if (calculatorRateType === 'Combo') {
+                breakdown1 = miles * rate;
+                breakdown2 = loadPay;
+                breakdown3 = stops * stopPay;
+                totalPay = breakdown1 + breakdown2 + breakdown3;
+            }
+
+            // Add stop pay if it exists
+            if (calculatorRateType !== 'Combo' && stops > 0) {
+                breakdown3 = stops * stopPay;
+                totalPay += breakdown3;
+            }
+
+            // Update display
+            document.getElementById('calcTotalPay').textContent = '$' + totalPay.toFixed(2);
+            const perMile = miles > 0 ? totalPay / miles : 0;
+            document.getElementById('calcPerMile').textContent = '$' + perMile.toFixed(2);
+
+            // Update breakdown
+            document.getElementById('breakdown1').textContent = '$' + breakdown1.toFixed(2);
+            document.getElementById('breakdown2').textContent = '$' + breakdown2.toFixed(2);
+            document.getElementById('breakdown3').textContent = '$' + breakdown3.toFixed(2);
+            document.getElementById('totalBreakdown').textContent = '$' + totalPay.toFixed(2);
+
+            // Show/hide breakdown rows
+            document.getElementById('breakdownRow2').style.display = (calculatorRateType === 'Combo' && breakdown2 > 0) ? 'flex' : 'none';
+            document.getElementById('breakdownRow3').style.display = (breakdown3 > 0 || calculatorRateType === 'Combo') ? 'flex' : 'none';
+        }
+
+        function dispatchLoadFromCalculator() {
+            const brokerName = document.getElementById('calcBrokerName').value.trim();
+            const miles = parseFloat(document.getElementById('calcMiles').value) || 0;
+            const rate = parseFloat(document.getElementById('calcRate').value) || 0;
+            const equipment = document.getElementById('calcEquipment').value;
+            const freight = document.getElementById('calcFreight').value.trim();
+            const origin = document.getElementById('calcOrigin').value.trim();
+            const destination = document.getElementById('calcDestination').value.trim();
+            const notes = document.getElementById('calcNotes').value.trim();
+
+            if (!brokerName) {
+                showCalcMessage('Please enter broker name', 'error');
+                return;
+            }
+            if (miles <= 0) {
+                showCalcMessage('Miles must be greater than 0', 'error');
+                return;
+            }
+            if (rate <= 0) {
+                showCalcMessage('Rate must be greater than 0', 'error');
+                return;
+            }
+            if (!origin) {
+                showCalcMessage('Please enter pick-up location', 'error');
+                return;
+            }
+            if (!destination) {
+                showCalcMessage('Please enter delivery location', 'error');
+                return;
+            }
+
+            // Calculate total pay
+            const totalPay = parseFloat(document.getElementById('calcTotalPay').textContent.replace('$', '')) || 0;
+
+            // Generate load ID
+            const loadId = 'CALC-' + Date.now().toString().slice(-6);
+
+            // Create load object
+            const newLoad = {
+                id: loadId,
+                carrier: brokerName,
+                carrierId: null,
+                driverId: null,
+                origin: origin,
+                destination: destination,
+                status: 'pending',
+                rate: totalPay,
+                miles: miles,
+                weight: 0,
+                equipment: equipment,
+                freight: freight,
+                pickupDate: new Date().toISOString().slice(0, 10),
+                notes: `[Calculator] ${calculatorRateType} Rate: $${rate}/unit. ${notes}`
+            };
+
+            // Add to data
+            data.loads.push(newLoad);
+            updateLoadBoard();
+            updateDashboard();
+
+            // Show success and navigate
+            showCalcMessage('Load dispatched successfully!', 'success');
+            setTimeout(() => {
+                clearCalculator();
+                document.querySelector('[onclick="showSection(\'load-board\')"]').click();
+            }, 1500);
+        }
+
+        function clearCalculator() {
+            document.getElementById('calcBrokerName').value = '';
+            document.getElementById('calcMiles').value = '';
+            document.getElementById('calcRate').value = '';
+            document.getElementById('calcLoadPay').value = '';
+            document.getElementById('calcStopPay').value = '';
+            document.getElementById('calcStops').value = '';
+            document.getElementById('calcEquipment').value = '';
+            document.getElementById('calcFreight').value = '';
+            document.getElementById('calcOrigin').value = '';
+            document.getElementById('calcDestination').value = '';
+            document.getElementById('calcNotes').value = '';
+
+            setRateType('CPM');
+            calculateLoad();
+
+            const msg = document.getElementById('calcMessage');
+            msg.style.display = 'none';
+            msg.textContent = '';
+        }
+
+        function showCalcMessage(message, type) {
+            const msg = document.getElementById('calcMessage');
+            msg.textContent = message;
+            msg.style.display = 'block';
+            msg.style.background = type === 'error' ? 'rgba(255, 107, 107, 0.2)' : 'rgba(6, 214, 160, 0.2)';
+            msg.style.color = type === 'error' ? '#ff6b6b' : '#06d6a0';
+            msg.style.border = `1px solid ${type === 'error' ? '#ff6b6b' : '#06d6a0'}`;
         }
 
         window.addEventListener('load', () => {
