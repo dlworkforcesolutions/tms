@@ -777,6 +777,76 @@
                         <div class="card-label">Gross income</div>
                     </div>
                 </div>
+
+                <!-- Regional Coverage Map -->
+                <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border-color);">
+                    <h2 style="font-size: 18px; font-weight: 600; margin-bottom: 20px; color: var(--text-white); display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-map"></i> Operational Coverage Areas
+                    </h2>
+                    <div style="background: var(--bg-card); border-radius: 8px; padding: 20px; overflow-x: auto;">
+                        <svg viewBox="0 0 960 600" style="width: 100%; height: auto; max-width: 900px; margin: 0 auto; display: block;">
+                            <!-- Map Background -->
+                            <rect width="960" height="600" fill="var(--bg-dark)" style="background: #0f172a;"/>
+
+                            <!-- Simplified US Regional Map -->
+                            <!-- West Region (Blue) -->
+                            <g id="west" opacity="0.9" fill="#4361ee" stroke="#2d3e54" stroke-width="1">
+                                <path d="M 80 150 L 150 140 L 160 200 L 80 210 Z" title="West Region"/>
+                            </g>
+
+                            <!-- Southwest Region (Teal) -->
+                            <g id="southwest" opacity="0.9" fill="#2fa898" stroke="#2d3e54" stroke-width="1">
+                                <path d="M 80 210 L 160 200 L 180 320 L 80 330 Z" title="Southwest Region"/>
+                            </g>
+
+                            <!-- Midwest Region (Green) -->
+                            <g id="midwest" opacity="0.9" fill="#06d6a0" stroke="#2d3e54" stroke-width="1">
+                                <path d="M 150 140 L 280 120 L 290 240 L 160 200 Z" title="Midwest Region"/>
+                            </g>
+
+                            <!-- Northeast Region (Orange) -->
+                            <g id="northeast" opacity="0.9" fill="#ff8c42" stroke="#2d3e54" stroke-width="1">
+                                <path d="M 280 120 L 380 130 L 380 200 L 290 240 Z" title="Northeast Region"/>
+                            </g>
+
+                            <!-- Southeast Region (Red) -->
+                            <g id="southeast" opacity="0.9" fill="#ff6b6b" stroke="#2d3e54" stroke-width="1">
+                                <path d="M 290 240 L 380 200 L 380 380 L 250 380 L 180 320 Z" title="Southeast Region"/>
+                            </g>
+
+                            <!-- Region Labels -->
+                            <text x="100" y="180" font-size="18" font-weight="600" fill="white" text-anchor="middle" opacity="0.8">WEST</text>
+                            <text x="120" y="280" font-size="16" font-weight="600" fill="white" text-anchor="middle" opacity="0.8">SOUTHWEST</text>
+                            <text x="200" y="190" font-size="18" font-weight="600" fill="white" text-anchor="middle" opacity="0.8">MIDWEST</text>
+                            <text x="320" y="160" font-size="16" font-weight="600" fill="white" text-anchor="middle" opacity="0.8">NORTHEAST</text>
+                            <text x="310" y="310" font-size="18" font-weight="600" fill="white" text-anchor="middle" opacity="0.8">SOUTHEAST</text>
+                        </svg>
+                    </div>
+
+                    <!-- Region Info Cards -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 20px;">
+                        <div style="background: rgba(67, 97, 238, 0.1); border-left: 4px solid #4361ee; padding: 12px; border-radius: 6px;">
+                            <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: #4361ee; margin-bottom: 4px;">West</div>
+                            <div style="font-size: 13px; color: var(--text-light);">CA, OR, WA, NV, UT, CO</div>
+                        </div>
+                        <div style="background: rgba(47, 168, 152, 0.1); border-left: 4px solid #2fa898; padding: 12px; border-radius: 6px;">
+                            <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: #2fa898; margin-bottom: 4px;">Southwest</div>
+                            <div style="font-size: 13px; color: var(--text-light);">TX, AZ, NM, OK</div>
+                        </div>
+                        <div style="background: rgba(6, 214, 160, 0.1); border-left: 4px solid #06d6a0; padding: 12px; border-radius: 6px;">
+                            <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: #06d6a0; margin-bottom: 4px;">Midwest</div>
+                            <div style="font-size: 13px; color: var(--text-light);">IL, IN, IA, MO, KS, NE</div>
+                        </div>
+                        <div style="background: rgba(255, 140, 66, 0.1); border-left: 4px solid #ff8c42; padding: 12px; border-radius: 6px;">
+                            <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: #ff8c42; margin-bottom: 4px;">Northeast</div>
+                            <div style="font-size: 13px; color: var(--text-light);">NY, PA, NJ, MA, CT</div>
+                        </div>
+                        <div style="background: rgba(255, 107, 107, 0.1); border-left: 4px solid #ff6b6b; padding: 12px; border-radius: 6px;">
+                            <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: #ff6b6b; margin-bottom: 4px;">Southeast</div>
+                            <div style="font-size: 13px; color: var(--text-light);">GA, FL, NC, SC, TN, AR</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Load Board Section -->
