@@ -954,7 +954,7 @@
             <!-- Dispatch Hub Section -->
             <div id="dispatch-hub" class="section">
                 <h1 class="section-title">Dispatch Hub</h1>
-                <p class="section-subtitle">Comprehensive dispatch operations reference, tools, resources, and dispatcher playbook</p>
+                <p class="section-subtitle">Comprehensive dispatch operations reference, tools, resources, and playbook</p>
 
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px;">
                     <div class="card">
@@ -1020,7 +1020,7 @@
                 <h2 style="font-size: 18px; font-weight: 600; margin: 30px 0 15px; color: var(--text-white); display: flex; align-items: center; gap: 10px;">
                     <i class="fas fa-credit-card"></i> Carrier Authority Boards
                 </h2>
-                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 25px;">
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 40px;">
                     <a href="https://www.dat.com" target="_blank" class="card" style="text-decoration: none; color: var(--accent-blue); text-align: center; padding: 15px;">DAT</a>
                     <a href="https://www.chrobinson.com" target="_blank" class="card" style="text-decoration: none; color: var(--accent-blue); text-align: center; padding: 15px;">C.H. Robinson</a>
                     <a href="https://www.tql.com" target="_blank" class="card" style="text-decoration: none; color: var(--accent-blue); text-align: center; padding: 15px;">TQL</a>
@@ -1028,122 +1028,15 @@
                     <a href="https://www.echo.com" target="_blank" class="card" style="text-decoration: none; color: var(--accent-blue); text-align: center; padding: 15px;">Echo Global</a>
                 </div>
 
-                <h2 style="font-size: 18px; font-weight: 600; margin: 30px 0 20px; color: var(--text-white);">Dispatcher Playbook</h2>
-                <p class="section-subtitle">Step-by-step guide to finding loads, vetting brokers, negotiating rates, and managing operations</p>
-
-                <div style="margin-bottom: 25px;">
-                    <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 12px; color: var(--accent-blue); display: flex; align-items: center; gap: 8px;">
-                        <i class="fas fa-graduation-cap"></i> Foundational Concepts
-                    </h3>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-blue); padding: 15px; border-radius: 4px; margin-bottom: 15px;">
-                        <div style="font-weight: 600; margin-bottom: 5px;">Rate Per Mile (RPM)</div>
-                        <div style="color: var(--text-light); font-size: 13px;">The most important metric in trucking. RPM = Gross Revenue / Total Miles. Always calculate before accepting loads.</div>
-                    </div>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-blue); padding: 15px; border-radius: 4px; margin-bottom: 15px;">
-                        <div style="font-weight: 600; margin-bottom: 5px;">Deadhead Miles</div>
-                        <div style="color: var(--text-light); font-size: 13px;">Empty miles that earn $0. Minimize deadhead when negotiating loads to maintain profitability.</div>
-                    </div>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-blue); padding: 15px; border-radius: 4px; margin-bottom: 15px;">
-                        <div style="font-weight: 600; margin-bottom: 5px;">Freight Market Dynamics</div>
-                        <div style="color: var(--text-light); font-size: 13px;">Hot zones = high demand, strong negotiating power. Cold zones = low freight, weak rates. Know the market.</div>
-                    </div>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-blue); padding: 15px; border-radius: 4px;">
-                        <div style="font-weight: 600; margin-bottom: 5px;">Your Leverage</div>
-                        <div style="color: var(--text-light); font-size: 13px;">You have leverage when trucks are scarce and freight demand is high. Brokers have leverage when freight is scarce and trucks abundant.</div>
-                    </div>
+                <!-- Dispatch Hub Management Section -->
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                    <h2 style="font-size: 18px; font-weight: 600; margin: 0; color: var(--text-white); display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-book"></i> Dispatch Hub Items
+                    </h2>
+                    <button class="btn btn-primary" onclick="openModal('addDispatchItem')" style="font-size: 13px; padding: 8px 16px;">+ Add Item</button>
                 </div>
 
-                <div style="margin-bottom: 25px;">
-                    <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 12px; color: var(--accent-blue); display: flex; align-items: center; gap: 8px;">
-                        <i class="fas fa-search"></i> Finding & Evaluating Loads
-                    </h3>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-green); padding: 15px; border-radius: 4px; margin-bottom: 15px;">
-                        <div style="font-weight: 600; margin-bottom: 8px;">Load Board Abbreviations</div>
-                        <ul style="color: var(--text-light); font-size: 13px; padding-left: 20px;">
-                            <li>V = Dry Van | R = Reefer | F = Flatbed | FH = Hotshot</li>
-                            <li>VA = Dry Van Air Ride | VG = Trailer w/Lift Gate | SB = Straight Truck</li>
-                            <li>FCFS = First Come, First Serve | S/O = Stop Off</li>
-                        </ul>
-                    </div>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-green); padding: 15px; border-radius: 4px; margin-bottom: 15px;">
-                        <div style="font-weight: 600; margin-bottom: 5px;">Evaluate Before Pitching</div>
-                        <div style="color: var(--text-light); font-size: 13px;">Calculate total miles, deadhead, gross revenue, and RPM. Ask: Does this make sense? Is the rate competitive? Will the driver like it?</div>
-                    </div>
-                </div>
-
-                <div style="margin-bottom: 25px;">
-                    <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 12px; color: var(--accent-blue); display: flex; align-items: center; gap: 8px;">
-                        <i class="fas fa-handshake"></i> Vetting Brokers & Credit
-                    </h3>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-orange); padding: 15px; border-radius: 4px; margin-bottom: 15px;">
-                        <div style="font-weight: 600; margin-bottom: 8px;">Check Broker Credit Through Factoring</div>
-                        <div style="color: var(--text-light); font-size: 13px; line-height: 1.5;">
-                            Log into your factoring portal (RTS, OTR, TAFS, etc.). Search broker by MC number. Check Status: Approved = Safe to book | Pending = Contact factoring | Declined = Do NOT book
-                        </div>
-                    </div>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-orange); padding: 15px; border-radius: 4px;">
-                        <div style="font-weight: 600; margin-bottom: 5px;">Key Principle</div>
-                        <div style="color: var(--text-light); font-size: 13px;">Never book a load with a declined broker, even if rates look good. Risk of non-payment far outweighs profit.</div>
-                    </div>
-                </div>
-
-                <div style="margin-bottom: 25px;">
-                    <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 12px; color: var(--accent-blue); display: flex; align-items: center; gap: 8px;">
-                        <i class="fas fa-chart-line"></i> Negotiation & Rate Management
-                    </h3>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-yellow); padding: 15px; border-radius: 4px; margin-bottom: 15px;">
-                        <div style="font-weight: 600; margin-bottom: 8px;">Negotiation Tactics</div>
-                        <ul style="color: var(--text-light); font-size: 13px; padding-left: 20px;">
-                            <li>Start with your asking rate (higher than lowest acceptable)</li>
-                            <li>Ask clarifying questions about freight, deadhead, and market conditions</li>
-                            <li>Make small moves toward broker; don't drop immediately</li>
-                            <li>Know your walk-away number (minimum RPM needed)</li>
-                        </ul>
-                    </div>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-yellow); padding: 15px; border-radius: 4px;">
-                        <div style="font-weight: 600; margin-bottom: 5px;">Your Pitch</div>
-                        <div style="color: var(--text-light); font-size: 13px; font-style: italic;">"I'll keep your truck moving, handle all calls and communication, negotiate for better rates, and take care of your paperwork so you can focus on driving."</div>
-                    </div>
-                </div>
-
-                <div style="margin-bottom: 25px;">
-                    <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 12px; color: var(--accent-blue); display: flex; align-items: center; gap: 8px;">
-                        <i class="fas fa-tasks"></i> Daily Dispatch Workflow
-                    </h3>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-purple); padding: 15px; border-radius: 4px; margin-bottom: 15px;">
-                        <div style="font-weight: 600; margin-bottom: 5px;">Morning Routine</div>
-                        <div style="color: var(--text-light); font-size: 13px;">Check overnight messages from brokers. Review current loads. Identify hot rates/lanes. Prepare 2-3 load options for drivers.</div>
-                    </div>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-purple); padding: 15px; border-radius: 4px; margin-bottom: 15px;">
-                        <div style="font-weight: 600; margin-bottom: 5px;">Load Picking</div>
-                        <div style="color: var(--text-light); font-size: 13px;">Driver calls → Present 2-3 curated options (pickup, delivery, home time, weekly pay, freight type) → Driver chooses → Pitch to broker and negotiate if needed.</div>
-                    </div>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-purple); padding: 15px; border-radius: 4px;">
-                        <div style="font-weight: 600; margin-bottom: 5px;">Communication Key</div>
-                        <div style="color: var(--text-light); font-size: 13px;">Keep drivers and brokers informed with quick updates. "We're heading to pickup." "Delivery expected tomorrow." Simple updates build trust.</div>
-                    </div>
-                </div>
-
-                <div style="margin-bottom: 25px;">
-                    <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 12px; color: var(--accent-blue); display: flex; align-items: center; gap: 8px;">
-                        <i class="fas fa-file-contract"></i> Paperwork & Payment Management
-                    </h3>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-green); padding: 15px; border-radius: 4px; margin-bottom: 15px;">
-                        <div style="font-weight: 600; margin-bottom: 8px;">Document Workflow</div>
-                        <div style="color: var(--text-light); font-size: 13px; line-height: 1.5;">
-                            Broker sends rate confirmation + unsigned BOL → Forward BOL to driver → Driver signs at drop-off (becomes Proof of Delivery) → Return signed BOL to broker → Keep all documents for reconciliation and factoring
-                        </div>
-                    </div>
-                    <div style="background: var(--bg-card); border-left: 3px solid var(--accent-green); padding: 15px; border-radius: 4px;">
-                        <div style="font-weight: 600; margin-bottom: 5px;">Key Principle</div>
-                        <div style="color: var(--text-light); font-size: 13px;">The faster and more accurate you are with paperwork, the faster carriers get paid. Speed builds trust.</div>
-                    </div>
-                </div>
-
-                <div style="background: rgba(67, 97, 238, 0.1); border: 1px solid var(--accent-blue); border-radius: 6px; padding: 20px; margin-bottom: 25px;">
-                    <div style="font-weight: 600; margin-bottom: 8px; color: var(--accent-blue);">Remember</div>
-                    <div style="color: var(--text-light); font-size: 13px;">Your job is to keep the truck moving, communicate clearly, solve problems, and manage paperwork accurately. Build trust through reliability, and carriers will stick with you. The better you are at these basics, the more you can charge for your services.</div>
-                </div>
+                <div id="dispatchHubDisplay" style="margin-bottom: 25px;"></div>
             </div>
         </div>
     </div>
@@ -1542,6 +1435,71 @@
         </div>
     </div>
 
+    <!-- Add Dispatch Hub Item Modal -->
+    <div id="addDispatchItemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Add Dispatch Hub Item</span>
+                <button class="modal-close" onclick="closeModal('addDispatchItem')">&times;</button>
+            </div>
+            <form onsubmit="addDispatchHubItem(event)">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="dhItemTitle" placeholder="Item title" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="dhItemCategory" required>
+                        <option value="">-- Select Category --</option>
+                        <option value="Playbook">Playbook</option>
+                        <option value="Tools">Tools</option>
+                        <option value="Resources">Resources</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Content</label>
+                    <textarea id="dhItemContent" placeholder="Main content for this item" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea id="dhItemNotes" placeholder="Additional notes (optional)" rows="2"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Attachment</label>
+                    <input type="file" id="dhItemAttachment">
+                    <small style="color: var(--text-muted);">Optional: Attach a file for reference</small>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" class="btn btn-primary">Add Item</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addDispatchItem')">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Dispatch Hub Item Modal -->
+    <div id="viewDispatchItemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="viewDHItemTitle">Dispatch Hub Item</span>
+                <button class="modal-close" onclick="closeModal('viewDispatchItem')">&times;</button>
+            </div>
+
+            <div id="viewDHItemContent" style="margin-bottom: 25px;"></div>
+
+            <div style="display: flex; gap: 12px; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); flex-wrap: wrap;">
+                <button class="btn btn-primary" id="editDHItemBtn" style="flex: 1; min-width: 120px; padding: 12px 20px; font-size: 15px; font-weight: 600;">Edit</button>
+                <button class="btn btn-secondary" id="deleteDHItemBtn" style="flex: 1; min-width: 120px; padding: 12px 20px; font-size: 15px; font-weight: 600; background: #ff6b6b; border-color: #ff6b6b; color: white;">Delete</button>
+                <button class="btn btn-secondary" onclick="closeModal('viewDispatchItem')" style="flex: 1; min-width: 120px; padding: 12px 20px; font-size: 15px; font-weight: 600;">Close</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         let data = {
             loads: [
@@ -1597,6 +1555,62 @@
                 {id: 'COMM001', loadId: 'LOAD001', driverId: 'DRV001', type: 'SMS', message: 'Load assigned. Pickup at 6am at 123 Industrial Dr, Chicago', date: '2026-09-27 14:30', status: 'sent'},
                 {id: 'COMM002', loadId: 'LOAD001', driverId: 'DRV001', type: 'Phone', message: 'Confirmed pickup time and rate details', date: '2026-09-27 15:00', status: 'completed'},
                 {id: 'COMM003', loadId: 'LOAD002', driverId: 'DRV003', type: 'SMS', message: 'Home by Thursday. Weekly pay $1650-$1850/wk. Interested?', date: '2026-09-27 09:00', status: 'sent'}
+            ],
+            dispatchHub: [
+                {
+                    id: 'DH001',
+                    title: 'Pre-Dispatch Checklist',
+                    category: 'Playbook',
+                    content: 'Verify driver qualifications, check load details, confirm pickup/delivery times, review rate and payment terms, ensure all documentation is complete.',
+                    notes: '',
+                    attachments: [],
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: 'DH002',
+                    title: 'Load Assignment Process',
+                    category: 'Playbook',
+                    content: 'Contact driver with load details, confirm availability and interest, provide pickup address and time, review rate and freight type, send confirmation SMS, upload BOL to system.',
+                    notes: '',
+                    attachments: [],
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: 'DH003',
+                    title: 'Dispute Resolution',
+                    category: 'Playbook',
+                    content: 'Listen to carrier/driver concerns, review documentation and communications, consult rate confirmation, offer solutions or escalate to management if needed.',
+                    notes: '',
+                    attachments: [],
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: 'DH004',
+                    title: 'SMS Best Practices',
+                    category: 'Tools',
+                    content: 'Keep messages under 160 characters, include driver name and job location, mention home time and pay, use clear call to action, follow up if no response within 4 hours.',
+                    notes: '',
+                    attachments: [],
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: 'DH005',
+                    title: 'Load Tracking',
+                    category: 'Tools',
+                    content: 'Confirm pickup with driver, request photo proof of load, monitor ETA to delivery, send delivery confirmation request, update load status in system.',
+                    notes: '',
+                    attachments: [],
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: 'DH006',
+                    title: 'Payment Processing',
+                    category: 'Resources',
+                    content: 'Verify delivery completion, confirm rate with carrier, process driver payment, send payment confirmation to driver, reconcile carrier invoice.',
+                    notes: '',
+                    attachments: [],
+                    createdAt: new Date().toISOString()
+                }
             ]
         };
 
@@ -1618,13 +1632,97 @@
         }
 
         function updateDispatchHub() {
-            const pendingLoads = data.loads.filter(l => l.status === 'pending').length;
-            const assignedLoads = data.loads.filter(l => ['assigned', 'in-transit'].includes(l.status)).length;
-            const deliveredLoads = data.loads.filter(l => ['delivered', 'completed'].includes(l.status)).length;
+            const display = document.getElementById('dispatchHubDisplay');
+            if (!display) return;
 
-            document.getElementById('hubPendingLoads').textContent = pendingLoads;
-            document.getElementById('hubAssignedLoads').textContent = assignedLoads;
-            document.getElementById('hubDeliveredLoads').textContent = deliveredLoads;
+            // Group items by category
+            const categories = {};
+            data.dispatchHub.forEach(item => {
+                if (!categories[item.category]) {
+                    categories[item.category] = [];
+                }
+                categories[item.category].push(item);
+            });
+
+            display.innerHTML = '';
+
+            // Define category colors
+            const categoryColors = {
+                'Playbook': '#4361ee',
+                'Tools': '#ff6b35',
+                'Resources': '#06d6a0'
+            };
+
+            Object.keys(categories).forEach(category => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.style.marginBottom = '25px';
+
+                const categoryHeader = document.createElement('h3');
+                categoryHeader.style.cssText = `
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    color: ${categoryColors[category] || '#4361ee'};
+                    margin-bottom: 12px;
+                    letter-spacing: 0.5px;
+                `;
+                categoryHeader.textContent = category;
+                categoryDiv.appendChild(categoryHeader);
+
+                const itemsContainer = document.createElement('div');
+                itemsContainer.style.display = 'grid';
+                itemsContainer.style.gap = '10px';
+
+                categories[category].forEach(item => {
+                    const itemCard = document.createElement('div');
+                    itemCard.style.cssText = `
+                        background: var(--bg-card);
+                        border-left: 4px solid ${categoryColors[category] || '#4361ee'};
+                        padding: 15px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    `;
+                    itemCard.onmouseover = () => itemCard.style.background = 'var(--bg-hover)';
+                    itemCard.onmouseout = () => itemCard.style.background = 'var(--bg-card)';
+                    itemCard.onclick = () => openViewDispatchItem(item.id);
+
+                    const titleDiv = document.createElement('div');
+                    titleDiv.style.cssText = 'font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--text-white);';
+                    titleDiv.textContent = item.title;
+
+                    const contentDiv = document.createElement('div');
+                    contentDiv.style.cssText = 'font-size: 13px; color: var(--text-light); line-height: 1.5; margin-bottom: 8px;';
+                    contentDiv.textContent = item.content.substring(0, 100) + (item.content.length > 100 ? '...' : '');
+
+                    const footerDiv = document.createElement('div');
+                    footerDiv.style.cssText = 'display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-muted);';
+
+                    const dateSpan = document.createElement('span');
+                    const date = new Date(item.createdAt);
+                    dateSpan.textContent = date.toLocaleDateString();
+
+                    const attachmentSpan = document.createElement('span');
+                    if (item.attachments && item.attachments.length > 0) {
+                        attachmentSpan.innerHTML = `<i class="fas fa-paperclip"></i> ${item.attachments.length}`;
+                    }
+                    if (item.notes) {
+                        attachmentSpan.innerHTML += (attachmentSpan.innerHTML ? ' | ' : '') + '<i class="fas fa-sticky-note"></i> Notes';
+                    }
+
+                    footerDiv.appendChild(dateSpan);
+                    if (attachmentSpan.innerHTML) footerDiv.appendChild(attachmentSpan);
+
+                    itemCard.appendChild(titleDiv);
+                    itemCard.appendChild(contentDiv);
+                    itemCard.appendChild(footerDiv);
+
+                    itemsContainer.appendChild(itemCard);
+                });
+
+                categoryDiv.appendChild(itemsContainer);
+                display.appendChild(categoryDiv);
+            });
         }
 
         function openModal(modalType) {
@@ -1634,6 +1732,210 @@
 
         function closeModal(modalType) {
             document.getElementById(modalType + 'Modal').classList.remove('active');
+        }
+
+        function openViewDispatchItem(itemId) {
+            const item = data.dispatchHub.find(i => i.id === itemId);
+            if (!item) return;
+
+            // Set current item for edit/delete operations
+            window.currentDHItem = item;
+
+            // Update modal title and content
+            document.getElementById('viewDHItemTitle').textContent = item.title;
+
+            const contentDiv = document.getElementById('viewDHItemContent');
+            contentDiv.innerHTML = '';
+
+            // Category badge
+            const categoryBadge = document.createElement('div');
+            const categoryColors = {
+                'Playbook': '#4361ee',
+                'Tools': '#ff6b35',
+                'Resources': '#06d6a0'
+            };
+            categoryBadge.style.cssText = `
+                display: inline-block;
+                background: ${categoryColors[item.category] || '#4361ee'};
+                color: white;
+                padding: 4px 12px;
+                border-radius: 12px;
+                font-size: 11px;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-bottom: 15px;
+            `;
+            categoryBadge.textContent = item.category;
+
+            // Content section
+            const sectionDiv = (title, value) => {
+                const div = document.createElement('div');
+                div.style.marginBottom = '15px';
+                const label = document.createElement('div');
+                label.style.cssText = 'font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; margin-bottom: 6px;';
+                label.textContent = title;
+                const valueEl = document.createElement('div');
+                valueEl.style.cssText = 'font-size: 14px; color: var(--text-light); line-height: 1.6;';
+                valueEl.textContent = value;
+                div.appendChild(label);
+                div.appendChild(valueEl);
+                return div;
+            };
+
+            contentDiv.appendChild(categoryBadge);
+            contentDiv.appendChild(sectionDiv('Content', item.content));
+
+            if (item.notes) {
+                contentDiv.appendChild(sectionDiv('Notes', item.notes));
+            }
+
+            if (item.attachments && item.attachments.length > 0) {
+                const attachDiv = document.createElement('div');
+                attachDiv.style.marginBottom = '15px';
+                const label = document.createElement('div');
+                label.style.cssText = 'font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; margin-bottom: 6px;';
+                label.textContent = 'Attachments';
+                attachDiv.appendChild(label);
+
+                const filesList = document.createElement('div');
+                filesList.style.display = 'flex';
+                filesList.style.flexDirection = 'column';
+                filesList.style.gap = '6px';
+
+                item.attachments.forEach(file => {
+                    const fileEl = document.createElement('div');
+                    fileEl.style.cssText = 'font-size: 13px; color: var(--accent-blue); cursor: pointer; display: flex; align-items: center; gap: 6px;';
+                    fileEl.innerHTML = `<i class="fas fa-file"></i> ${file.name || 'Attachment'}`;
+                    filesList.appendChild(fileEl);
+                });
+
+                attachDiv.appendChild(filesList);
+                contentDiv.appendChild(attachDiv);
+            }
+
+            const dateDiv = document.createElement('div');
+            dateDiv.style.cssText = 'font-size: 12px; color: var(--text-muted); margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border-color);';
+            const date = new Date(item.createdAt);
+            dateDiv.textContent = 'Created: ' + date.toLocaleString();
+            contentDiv.appendChild(dateDiv);
+
+            // Setup edit and delete buttons
+            document.getElementById('editDHItemBtn').onclick = () => editDispatchHubItem(itemId);
+            document.getElementById('deleteDHItemBtn').onclick = () => deleteDispatchHubItem(itemId);
+
+            openModal('viewDispatchItem');
+        }
+
+        function addDispatchHubItem(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('dhItemTitle').value;
+            const category = document.getElementById('dhItemCategory').value;
+            const content = document.getElementById('dhItemContent').value;
+            const notes = document.getElementById('dhItemNotes').value;
+            const fileInput = document.getElementById('dhItemAttachment');
+
+            // Generate new ID
+            const newId = 'DH' + String(data.dispatchHub.length + 1).padStart(3, '0');
+
+            // Handle file attachment
+            const attachments = [];
+            if (fileInput.files && fileInput.files[0]) {
+                const file = fileInput.files[0];
+                attachments.push({
+                    name: file.name,
+                    size: file.size,
+                    type: file.type
+                });
+            }
+
+            // Create new item
+            const newItem = {
+                id: newId,
+                title: title,
+                category: category,
+                content: content,
+                notes: notes,
+                attachments: attachments,
+                createdAt: new Date().toISOString()
+            };
+
+            // Add to data
+            data.dispatchHub.push(newItem);
+
+            // Reset form and close modal
+            event.target.reset();
+            closeModal('addDispatchItem');
+
+            // Update display
+            updateDispatchHub();
+
+            // Show success message
+            alert('Dispatch Hub item added successfully!');
+        }
+
+        function editDispatchHubItem(itemId) {
+            const item = data.dispatchHub.find(i => i.id === itemId);
+            if (!item) return;
+
+            // Populate form with current values
+            document.getElementById('dhItemTitle').value = item.title;
+            document.getElementById('dhItemCategory').value = item.category;
+            document.getElementById('dhItemContent').value = item.content;
+            document.getElementById('dhItemNotes').value = item.notes || '';
+
+            // Close view modal
+            closeModal('viewDispatchItem');
+
+            // Open add modal (we'll use it for editing)
+            openModal('addDispatchItem');
+
+            // Change form behavior for edit
+            const form = document.getElementById('addDispatchItemModal').querySelector('form');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.textContent = 'Update Item';
+
+            const originalOnSubmit = form.onsubmit;
+            form.onsubmit = (event) => {
+                event.preventDefault();
+
+                item.title = document.getElementById('dhItemTitle').value;
+                item.category = document.getElementById('dhItemCategory').value;
+                item.content = document.getElementById('dhItemContent').value;
+                item.notes = document.getElementById('dhItemNotes').value;
+
+                // Handle new file if uploaded
+                const fileInput = document.getElementById('dhItemAttachment');
+                if (fileInput.files && fileInput.files[0]) {
+                    const file = fileInput.files[0];
+                    if (!item.attachments) item.attachments = [];
+                    item.attachments.push({
+                        name: file.name,
+                        size: file.size,
+                        type: file.type
+                    });
+                }
+
+                event.target.reset();
+                closeModal('addDispatchItem');
+                submitBtn.textContent = 'Add Item';
+                form.onsubmit = originalOnSubmit;
+
+                updateDispatchHub();
+                alert('Dispatch Hub item updated successfully!');
+            };
+        }
+
+        function deleteDispatchHubItem(itemId) {
+            if (!confirm('Are you sure you want to delete this dispatch hub item?')) return;
+
+            const index = data.dispatchHub.findIndex(i => i.id === itemId);
+            if (index !== -1) {
+                data.dispatchHub.splice(index, 1);
+                closeModal('viewDispatchItem');
+                updateDispatchHub();
+                alert('Dispatch Hub item deleted successfully!');
+            }
         }
 
         function populateCarrierDropdown() {
