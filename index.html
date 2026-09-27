@@ -783,33 +783,8 @@
                     <h2 style="font-size: 18px; font-weight: 600; margin-bottom: 20px; color: var(--text-white); display: flex; align-items: center; gap: 10px;">
                         <i class="fas fa-map"></i> Operational Coverage Areas
                     </h2>
-                    <div style="background: var(--bg-card); border-radius: 8px; padding: 20px; overflow-x: auto;">
-                        <svg viewBox="0 0 1200 700" style="width: 100%; height: auto; max-width: 1000px; margin: 0 auto; display: block;">
-                            <!-- West Region (Blue) - CA, OR, WA, NV, UT, CO -->
-                            <ellipse cx="200" cy="250" rx="90" ry="120" fill="#4361ee" opacity="0.85"/>
-                            <text x="200" y="260" font-size="20" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">WEST</text>
-
-                            <!-- Southwest Region (Teal) - TX, AZ, NM, OK -->
-                            <ellipse cx="280" cy="420" rx="80" ry="100" fill="#2fa898" opacity="0.85"/>
-                            <text x="280" y="425" font-size="18" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">SOUTHWEST</text>
-
-                            <!-- Midwest Region (Green) - IL, IN, IA, MO, KS, NE, ND, SD, MN -->
-                            <ellipse cx="500" cy="280" rx="100" ry="120" fill="#06d6a0" opacity="0.85"/>
-                            <text x="500" y="280" font-size="20" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">MIDWEST</text>
-
-                            <!-- Southeast Region (Red) - GA, FL, NC, SC, TN, AR, LA, MS, AL -->
-                            <ellipse cx="700" cy="420" rx="110" ry="110" fill="#ff6b6b" opacity="0.85"/>
-                            <text x="700" y="425" font-size="20" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">SOUTHEAST</text>
-
-                            <!-- Northeast Region (Orange) - NY, PA, NJ, MA, CT, VT, NH, ME, RI -->
-                            <ellipse cx="850" cy="200" rx="80" ry="100" fill="#ff8c42" opacity="0.85"/>
-                            <text x="850" y="205" font-size="18" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">NORTHEAST</text>
-
-                            <!-- Decorative connecting lines -->
-                            <line x1="280" y1="360" x2="400" y2="320" stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-dasharray="5,5"/>
-                            <line x1="600" y1="350" x2="650" y2="380" stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-dasharray="5,5"/>
-                            <line x1="750" y1="320" x2="800" y2="280" stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-dasharray="5,5"/>
-                        </svg>
+                    <div style="background: var(--bg-card); border-radius: 8px; padding: 20px; overflow-x: auto; text-align: center;">
+                        <img src="data:image/webp;base64,UklGRobCAABXRUJQVlA4IHrCAADwsAKdASo4BMECPlEmkEYjoiOhJBLJ6HAKCWNu/Bzx4RG8B/gGl7x74+OhlWk/UANQnGL5X/B7NObfVn7X/G/5f/ue1dyf3MewfwP+Y/3n+H/cr7+v6n7Ldy/wn/K8qTmz/s/4r/T/tn86P9b/7f9P/o/hb/WP8p/3/z1+gj+if3D/n/3r/Q/DD/tftL7wP8J/yfzY+B39Y/z37V+77/xv2494/9w/237e/8T5CP6R/mP/r7a3/i///uzf6D/xf//3Iv61/zP/36837rf8/5fP7X/zv2+/7vvYf/r/he4B///bu6X/st/mf8B6zPFL9V/df9B5o/jX0/+I/uP7f/3v3D/8DxydZ/93/V+pv8o+6/6z+//5v/q/5v3F/5v+E/LH0b+NX+V/if897gv5X/P/9H/e/3d/yX7z+7vs29+/4foC+1X1b/gf37/Q//H/X/At8Z/4f8T/nfY/7Bf9n/H/lN9gP9N/rH/A/w/5Ie2H4SX4j/j/uD8Af8//vn/r/0P+p+Gz++/+n+z9LX6F/rv/h/rvgW/nv97/73+a6tH2wB+sZMcfy2Z/a4XxM1ebPFTH7Eq1iOOa/t2MVPuQaFCv3PRSAK48lMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzK7AupvuBsrh5ay+mH5HoTFGZ1sF1a/rLKwmz2ksWDT9W+eI15RYjZmZmZmZmZmZmZmZmZmZmZmZmZmZlvLpz+7ZUI43P4LEgT+2YdOezGQS0ridi87psazIFjAU+X2erLeg6OOPhBUwg/K+mAc1AAyNjOX8US++tOg1VVVVVVVVVVVVVVVVTp6Z6XPa3V42eqsUT2o1jMyig8F8FK8Eas52Al4XlHV9UlV7VfjVHsJmqvP+7dPGd+g1cvAvYuFwWbgLOPM1WkXtZ1bxMRdXgsLLgTZYf/5MtK1RTwbToNVVVVVVVVVU9Qq/+uqAIbNCxmZMlo59BN6HTiAUEuR5avk6xH2gStyZIy4BkcxLSDBbkCB3S6oqgD2q0e6arJOPPsG259156Rwkb4xehOcpVroHrJjmj1D65AlOUEb7u7u7u7u7u7uzUcedHIqjr1M3ShJm06zTq0o+05rJR75+up+ncgxDVwg3Na3pKTutfVDBo2UxUcsFHfB/VGwSKhgzSmDREUGrR+AiaEJoQLPeXBvWr43ADG07HNQtSoprijl8UZhITnUXyF34OKvNc4OI+GGsFH3YEgjScCyN+0GTAWgPqjd01L6jfZWEZafpXY9ORIKlHGcDJj/4MR1s/q715n4e3lLtDBgX/pWMzMyjHWQkRnqzINEPvRnO5DRMpHONYKe8LBx/4uFk6Qm47WLctQdEmfBvYqUj615QLvaDMe1FyuvDhY0UtTapmDY6jIcfKrXPaq6WzcuGrwwc0nnwxH/NdAlHqzfzUKSmJQHdDGf7CCg8w37iAvEH/6yNiPBQnJz7gXWygoWqJBN4AzJP2MINAOzjFmQZ+jxwwNnN5vLqOEa6ehQ4X7A6OFnKJCGbFnV3AYKX3bqTrfdWWRDttjs/Kyebhp81/hF2iO3Uejdr6iGkq4ftgDgBkjrxohqbqWetxr5DM6nEnmGqx3624EwIFJYfayunK9bPUKpSlZAJS5FrIpdHC0knJWDoBDCX/HCA4S6hUtxWxGJyJLbzWHv3nNGURHl5R2lHJPV1dvwDA8CRHfJ9VSxuH26NEB3G7iqbTD6uYoCc5j88iTbxugUrzjsce7IiHoPrshjSbrn8ha7eG+QYgwb8rTKMwbk4p8Wd74/mrLwEI/Dh49uBKIzHdPo63xJqBa+KhZ083qIo+6NlnP2VnyneIFqFyyGBqQ591X6Y/zT3E1VBS+fcKrFtItYGwiGayn5+LAB9BqpuW97dfmGAQTeyjmaQjNf2D3U4elykAfR1iulPcFK4cyv01fujJ+TGYFVRYGYiHSz70dj6m56FW8pGS6/1DCvMsoDk/" style="width: 100%; height: auto; max-width: 900px; margin: 0 auto; display: block; border-radius: 6px;" alt="US Regional Coverage Map"/>
                     </div>
 
                     <!-- Region Info Cards -->
